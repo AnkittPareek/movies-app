@@ -1,12 +1,13 @@
-import React from 'react';
-import { makeStyles} from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import artists from './artists';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import Checkbox from "@material-ui/core/Checkbox";
+import artists from "./artists";
+import { userSelection } from "./filters";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -15,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 300,
   },
   chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   chip: {
     margin: 2,
@@ -37,33 +38,43 @@ const MenuProps = {
   },
 };
 
-export default function ArtistSelect() {
+export default function ArtistSelect(props) {
   const [artistName, setartistName] = React.useState([]);
 
   const handleChange = (event) => {
+    if (!userSelection.artists.includes(event.target.value)) {
+      userSelection.artists = event.target.value;
+    }
     setartistName(event.target.value);
   };
 
-
   return (
-      <>
-        <InputLabel id="demo-mutiple-checkbox-label">Artists</InputLabel>
-        <Select
-            labelId="demo-mutiple-checkbox-label"
-            id="demo-mutiple-checkbox"
-            multiple
-            value={artistName}
-            onChange={handleChange}
-            input={<Input />}
-            renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
-            >
-            {artists.map((name) => (
-                <MenuItem key={name.id} value={(name.first_name +" "+name.last_name)}>
-                <Checkbox checked={artistName.indexOf(name.first_name+" "+name.last_name) > -1} />
-                <ListItemText primary={(name.first_name +" "+ name.last_name)} />
-                </MenuItem>
-            ))}
-        </Select>
+    <>
+      <InputLabel id="demo-mutiple-checkbox-label">Artists</InputLabel>
+      <Select
+        labelId="demo-mutiple-checkbox-label"
+        id="demo-mutiple-checkbox"
+        multiple
+        value={artistName}
+        onChange={handleChange}
+        input={<Input />}
+        renderValue={(selected) => selected.join(", ")}
+        MenuProps={MenuProps}
+      >
+        {props.artists.map((name) => (
+          <MenuItem
+            key={name.id}
+            value={name.first_name + " " + name.last_name}
+          >
+            <Checkbox
+              checked={
+                artistName.indexOf(name.first_name + " " + name.last_name) > -1
+              }
+            />
+            <ListItemText primary={name.first_name + " " + name.last_name} />
+          </MenuItem>
+        ))}
+      </Select>
     </>
-  );}
+  );
+}

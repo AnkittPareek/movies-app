@@ -9,6 +9,11 @@
     animation: rotateAnim 8s infinite linear normal;
 }
 @keyframes rotateAnim {
-  from { transform: rotate(0deg);}
-  to{transform: rotate(360deg);}
+    from{
+        transform: rotateY(1deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
 }
+
