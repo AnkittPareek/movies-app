@@ -4,10 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './common/header/Header.js'
 import Home from './screens/home/Home'
-
+import Details from './screens/details/Details'
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/'  element={<Home  />} />
+        <Route path='details' element={<Details />} />
+      </Routes>
+    </BrowserRouter>,
   </React.StrictMode>,
   document.getElementById('root')
 );
