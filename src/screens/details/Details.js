@@ -35,7 +35,7 @@ function Details() {
           <img className="poster" alt="poster" src={data.poster_url}></img>
         </div>
         <div className="middleDetail">
-          <Typography variant="headline" component="h2">{data.title}</Typography> 
+          <Typography  component="h2">{data.title}</Typography> 
           <Typography><strong>Genres: </strong>{data.genres.toString()}</Typography>
           <Typography><strong>Duration: </strong>{data.duration}</Typography>
           <Typography><strong>Release Date: </strong>{new Date(data.release_date).toDateString()}</Typography>
@@ -44,7 +44,8 @@ function Details() {
           <Typography ><strong>Plot: </strong><a href={data.wiki_url}>(Wiki Link)</a>{" "+data.storyline}</Typography>
           </div>
           <div className="sixteenMargin">
-          <Typography><strong>Trailer: </strong><Trailer id={data.trailer_url.slice(32)}></Trailer></Typography>
+          <Typography><strong>Trailer: </strong></Typography>
+          <Trailer id={data.trailer_url.slice(32)}></Trailer>
           </div>
         </div>
         <div className="rightDetail">
@@ -55,19 +56,19 @@ function Details() {
           <StarBorderIcon onClick={starHandler} id="s4"/>
           <StarBorderIcon onClick={starHandler} id="s5"/>
           </Typography>
-          <Typography className="sixteenMargin"><strong>Artists:  </strong>
+          <Typography className="sixteenMargin"><strong>Artists:  </strong></Typography>
           
           <GridList cols={2} >
               {data.artists.map((item) => (
                 <GridListTile key={item.id}>
-                    <img src={item.profile_url}></img>
+                    <img alt={item.id} src={item.profile_url}></img>
                     <GridListTileBar title={item.first_name+" "+item.last_name}></GridListTileBar>
                 </GridListTile>
                 
               ))}
         </GridList>
 
-          </Typography>
+          
           
         </div>
       </div>
