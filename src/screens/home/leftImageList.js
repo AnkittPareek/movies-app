@@ -45,10 +45,10 @@ export default function TitlebarImageList(props) {
             
                 <Link to="/details" state={{ movie: item }}>
                 <img className="image" src={item.poster_url} alt={item.title} />
-                </Link>
+                </Link>        
                 <ImageListItemBar
-                  title={item.title}
-                  subtitle={<span>Release Date: {Date(item.release_date)}</span>}
+                  title={item.title}                  
+                  subtitle={<span>Release Date: {new Date(item.release_date).toDateString()}</span>}
                 />
               
             </ImageListItem>

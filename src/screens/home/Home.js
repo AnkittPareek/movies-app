@@ -32,18 +32,21 @@ class Home extends React.Component {
       state.userSelection = moviesData;
       this.setState(state);
       return moviesData;
-    } else {
+    } 
+    
+    else {
       const filteredMovies = this.state.data.filter((movie) => {
         if (
-          movie.title.toLowerCase() === userSelection.name.toLowerCase() ||
-          movie.genres.some((genre) => userSelection.genres.includes(genre)) ||
-          movie.artists.some((artist) =>
+          movie.title.toLowerCase() === userSelection.name.toLowerCase()||
+          movie.genres.some((genre) => userSelection.genres.includes(genre)) ||parseInt(new Date(movie.release_date).getTime()) <=  parseInt(new Date(userSelection.releaseDateEnd).getTime())||
+          parseInt(new Date(movie.release_date).getTime()) >=  parseInt(new Date(userSelection.releaseDateStart).getTime()) || movie.artists.some((artist) =>
             userSelection.artists.includes(
               `${artist.first_name} ${artist.last_name}`
             )
           )
         ) {
-          console.log(movie);
+          console.log(userSelection.releaseDateStart);
+          console.log(parseInt(new Date(movie.release_date).getTime()) >  parseInt(new Date(userSelection.releaseDateEnd).getTime()))
           return movie;
         }
         else

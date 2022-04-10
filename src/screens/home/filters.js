@@ -82,7 +82,7 @@ export default function SimpleCard(props) {
             id="date"
             label="Release Date Start"
             type="date"
-            defaultValue="yyyy-mm-dd"
+            defaultValue=""
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
@@ -98,7 +98,7 @@ export default function SimpleCard(props) {
             id="date"
             label="Release Date End"
             type="date"
-            defaultValue="yyyy-mm-dd"
+            defaultValue=""
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
