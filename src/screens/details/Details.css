@@ -22,14 +22,17 @@
     margin: 0 1%;   
 }
 .leftDetail{
-    background-color: salmon;
     width: 20%;
 }
 .middleDetail{
-    background-color: hotpink;
     width: 60%;
 }
 .rightDetail{
-    background-color: blue;
     width: 20%;
+}
+.sixteenMargin{
+    margin-top: 16px;
+}
+.poster{
+    width: 100%;
 }
