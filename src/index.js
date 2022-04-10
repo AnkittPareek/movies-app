@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './common/header/Header.js'
 import Home from './screens/home/Home'
 import Details from './screens/details/Details'
 import { BrowserRouter, Routes, Route,} from "react-router-dom";
-import { PinDropSharp } from '@material-ui/icons';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

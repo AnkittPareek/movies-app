@@ -46,6 +46,8 @@ class Home extends React.Component {
           console.log(movie);
           return movie;
         }
+        else
+          return null;
       });
 
       const state = this.state;

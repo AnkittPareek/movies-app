@@ -10,8 +10,6 @@ import {
   FormControl,
   Input,
   InputLabel,
-  Select,
-  MenuItem,
 } from "@material-ui/core";
 import GenreSelect from "./GenreSelect";
 import ArtistSelect from "./ArtistSelect";

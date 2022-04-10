@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
 import logo from './logo.svg';
-import { Button } from '@material-ui/core';
 
 function Header (props){
         return(
